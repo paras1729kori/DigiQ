@@ -43,27 +43,27 @@
               @if($names[$i]->form_fill == '0')
                 <td><input type="checkbox" name="form_fill" value="1"></td>
               @else
-                <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                <td><input type="checkbox" name="form_fill" value="1" onclick="return false" checked></td>
               @endif
               @if($names[$i]->verified == '0')
                 <td><input type="checkbox" name="verified" value="1"></td>
               @else
-                <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                <td><input type="checkbox" name="verified" value="1" onclick="return false" checked></td>
               @endif
               @if($names[$i]->file_created == '0')
                 <td><input type="checkbox" name="file_created" value="1"></td>
               @else
-                <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                <td><input type="checkbox" name="file_created" value="1" onclick="return false" checked></td>
               @endif
               @if($names[$i]->payment == '0')
                 <td><input type="checkbox" name="payment" value="1"></td>
               @else
-                <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                <td><input type="checkbox" name="payment" value="1" onclick="return false" checked></td>
               @endif
               @if($names[$i]->email_create == '0')
                 <td><input type="checkbox" name="email_create" value="1"></td>
               @else
-                <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                <td><input type="checkbox" name="email_create" value="1" onclick="return false" checked></td>
               @endif
                 
               {{-- <td><button><i class="fa fa-trash fa-lg icon" aria-hidden="true" class = "icon"></i></button></td>

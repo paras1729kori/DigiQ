@@ -27,6 +27,7 @@ Route::get('/editing/{id}','QueuesController@edit')->name('pages.edit');
 Route::post('/sending','QueuesController@store')->name('queues.store');
 Route::post('/updating/{id}','QueuesController@update')->name('queues.update');
 Route::get('/deleting/{id}','QueuesController@destroy')->name('queues.delete');
+
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
