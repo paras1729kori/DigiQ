@@ -21,12 +21,14 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/home', 'PagesController@users')->name('pages.users');
+Route::get('/home','FirebaseController@usersView')->name('users.view');
 Route::get('/queue', 'QueuesController@index')->name('pages.queues');
 Route::get('/editing/{id}','QueuesController@edit')->name('pages.edit');
 Route::post('/sending','QueuesController@store')->name('queues.store');
 Route::post('/updating/{id}','QueuesController@update')->name('queues.update');
 Route::get('/deleting/{id}','QueuesController@destroy')->name('queues.delete');
+
+Route::get('/test','FirebaseController@index')->name('firebase.test');
 
 Auth::routes();
 

@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\Names;
+use Kreait\Firebase;
+use Kreait\Firebase\Factory;
+use Kreait\Firebase\ServiceAccount;
+use Kreait\Firebase\Database;
 
 class QueuesController extends Controller
 {
@@ -15,9 +19,18 @@ class QueuesController extends Controller
      */
     public function index()
     {
+        $factory = (new Factory)->withServiceAccount(__DIR__.'/digiq-f5f74-firebase-adminsdk-3ewcn-6d963633d4.json');
+        $database = $factory->createDatabase();
+
+        //object for reading a db
+        $read = $database->getReference('names');
+
+        //reading data from db
+        $names = $read->getValue();
         $title = "Queue";
-        $names = Names::all();
-        return view('pages.queue',['title'=>$title, 'names'=>$names]);
+        // return $names;
+
+        return view('pages.queue',['names'=>$names,'title'=>$title]);
     }
 
     /**
@@ -60,10 +73,20 @@ class QueuesController extends Controller
      */
     public function edit($id)
     {
+        $factory = (new Factory)->withServiceAccount(__DIR__.'/digiq-f5f74-firebase-adminsdk-3ewcn-6d963633d4.json');
+        $database = $factory->createDatabase();
+        $token = $id;
+        //object for reading a db
+        $read = $database->getReference('names')->getChild($token);
+        // return $read;
+
+        //reading data from db
+        $data = $read->getValue();
+        // return $data;
+
         $title = 'Edit';
-        $id = $id;
-        $data = Names::find($id);
-        return view('pages.edit', ['id'=>$id,'title'=>$title,'data'=>$data]);
+
+        return view('pages.edit', ['id'=>$id,'title'=>$title,'data'=>$data,'token'=>$token]);
     }
 
     /**
@@ -75,44 +98,60 @@ class QueuesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $row = Names::find($id);
-        $form_fill = $request->form_fill;
-        $verified = $request->verified;
-        $file_created = $request->file_created;
-        $payment = $request->payment;
-        $email_create = $request->email_create;
+        $name = $_POST['name'];
+        $application_no = $_POST['application_no'];
+        $phone_no = $_POST['phone_no'];
+        $email = $_POST['email'];
+        $token = $_POST['token'];
 
-        if($form_fill == 1){
-            $row->form_fill = '1';
+        if($request->input('form_fill') == '1'){
+            $form_fill = '1';
         }
         else{
-            $row->form_fill = '0';
+            $form_fill = '0';
         }
-        if($verified == 1){
-            $row->verified = '1';
-        }
-        else{
-            $row->verified = '0';
-        }
-        if($file_created == 1){
-            $row->file_created = '1';
+        if($request->input('verified') == '1'){
+            $verified = '1';
         }
         else{
-            $row->file_created = '0';
+            $verified = '0';
         }
-        if($payment == 1){
-            $row->payment = '1';
-        }
-        else{
-            $row->payment = '0';
-        }
-        if($email_create == 1){
-            $row->email_create = '1';
+        if($request->input('file_created') == '1'){
+            $file_created = '1';
         }
         else{
-            $row->email_create = '0';
+            $file_created = '0';
         }
-        $row->save();
+        if($request->input('payment')== '1'){
+            $payment = '1';
+        }
+        else{
+            $payment = '0';
+        }
+        if($request->input('email_create') == '1'){
+            $email_create = '1';
+        }
+        else{
+            $email_create = '0';
+        }
+
+        $data = [
+            'name' => $name,
+            'application_no' => $application_no,
+            'phone_no' => $phone_no,
+            'email' => $email,
+            'form_fill' => $form_fill,
+            'verified' => $verified,
+            'file_created' => $file_created,
+            'payment' => $payment,
+            'email_create' => $email_create
+        ];
+
+        $factory = (new Factory)->withServiceAccount(__DIR__.'/digiq-f5f74-firebase-adminsdk-3ewcn-6d963633d4.json');
+        $database = $factory->createDatabase();
+        $ref = 'names/'.$token;
+        $read = $database->getReference($ref)->update($data);
+
         Session::flash('success','Details Updated Successfully');
         return redirect('/queue');
     }
@@ -125,8 +164,13 @@ class QueuesController extends Controller
      */
     public function destroy($id)
     {
-        $name = Names::find($id);
-        $name->delete();
+        $token = $id;
+
+        $factory = (new Factory)->withServiceAccount(__DIR__.'/digiq-f5f74-firebase-adminsdk-3ewcn-6d963633d4.json');
+        $database = $factory->createDatabase();
+        $ref = 'names/'.$token;
+        $read = $database->getReference($ref)->remove();
+        
         Session::flash('success','User Deleted Successfully');
         return redirect('/queue');
     }

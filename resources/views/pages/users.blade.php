@@ -19,7 +19,7 @@
           @for ($i = 0; $i < count($users); $i++)
             <tr>
               <th scope="row">{{$i+1}}</th>
-              <td>{{$users[$i]->name}}</td>
+              <td>{{$users[$i]}}</td>
               <td>1315646486</td>
               <td>11:22:33</td>
               <td>13:24:56</td>
