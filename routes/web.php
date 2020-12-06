@@ -24,6 +24,7 @@ Route::get('/', function () {
 Route::get('/home','FirebaseController@usersView')->name('users.view');
 Route::get('/queue', 'QueuesController@index')->name('pages.queues');
 Route::get('/editing/{id}','QueuesController@edit')->name('pages.edit');
+Route::get('/completed','QueuesController@completed')->name('pages.completed');
 Route::post('/sending','QueuesController@store')->name('queues.store');
 Route::post('/updating/{id}','QueuesController@update')->name('queues.update');
 Route::get('/deleting/{id}','QueuesController@destroy')->name('queues.delete');

@@ -3,6 +3,7 @@
 @section('content')
 <div class="mx-4">
     <h1 class="text-center">{{ $title }}</h1>
+    @if($names > 0)
     <table class="table table-hover text-center">
         <thead style="background-color: #44C5EC">
           <tr>
@@ -24,7 +25,7 @@
         </thead>
         <tbody>
           @php
-            $i = 0;   
+            $i = 0;
           @endphp
           @foreach ($names as $key => $row)
               <tr>
@@ -40,7 +41,7 @@
                 @php
                  $i++;  
                 @endphp
-            <form action="/updating/{{$key}}" method="POST">
+                <form action="/updating/{{$key}}" method="POST">
                 {{-- Hidden Data --}}
                 <input type="hidden" name="name" value="{{$row['name']}}">
                 <input type="hidden" name="application_no" value="{{$row['application_no']}}">
@@ -74,15 +75,50 @@
                     <td><input type="checkbox" name="email_create" value="1" onclick="return false" checked></td>
                   @endif
                 
-                <td><a href="/deleting/{{$key}}" type="submit" style="color:#044BD9;" class=""><i class="fa fa-trash fa-lg icon" aria-hidden="true" class = "icon"></i></a></td>
-                <td><a href="/editing/{{$key}}" type="submit" style="color:#044BD9;" class=""><i class="fa fa-edit fa-lg icon" aria-hidden="true" class = "icon"></i></a></td>
-                
-                <td>{{ $i * 5 }} minutes</td>
-                <td><input type="submit" class="btn btn-sm btn-primary" value = "Update"></td>
-              <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            </form>
-          </tr>
-      @endforeach
+                  <td><a href="/deleting/{{$key}}" type="submit" style="color:#044BD9;" class=""><i class="fa fa-trash fa-lg icon" aria-hidden="true" class = "icon"></i></a></td>
+                  <td><a href="/editing/{{$key}}" type="submit" style="color:#044BD9;" class=""><i class="fa fa-edit fa-lg icon" aria-hidden="true" class = "icon"></i></a></td>
+
+                  @if($row['form_fill'] == '0' || $row['verified'] == '0' || $row['file_created'] == '0' || $row['payment'] == '0' || $row['email_create'] == '0')
+                    @php
+                     $time_req = 0;
+                    @endphp
+                    @if($row['form_fill'] == '0')
+                    @php
+                      $time_req = $time_req + 5;   
+                    @endphp
+                    @endif
+                    @if($row['verified'] == '0')
+                    @php
+                      $time_req = $time_req + 5;   
+                    @endphp
+                    @endif
+                    @if($row['file_created'] == '0')
+                    @php
+                      $time_req = $time_req + 5;   
+                    @endphp
+                    @endif
+                    @if($row['payment'] == '0')
+                    @php
+                      $time_req = $time_req + 5;   
+                    @endphp
+                    @endif
+                    @if($row['email_create'] == '0')
+                    @php
+                      $time_req = $time_req + 5;   
+                    @endphp 
+                    @endif
+                    <td>{{ $time_req }} minutes</td>
+                  @else
+                    <td>---</td>
+                  @endif
+                  <td><input type="submit" class="btn btn-sm btn-primary" value = "Update"></td>
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+              </form>
+            </tr>
+          @endforeach
+    @else
+      <h4 class="text-center">No Queue Users added yet</h4 class="text-center">
+    @endif
     </tbody>
   </table>
 </div>

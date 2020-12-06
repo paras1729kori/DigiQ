@@ -3,6 +3,7 @@
 @section('content')
 <div class="mx-4">
     <h1 class="text-center">{{ $title }}</h1>
+    @if($users > 0)
     <table class="table table-hover text-center">
         <thead style="background-color: #44C5EC">
           <tr>
@@ -27,5 +28,8 @@
           @endfor
         </tbody>
       </table>
+    @else
+      <h4 class="text-center">No Admins added yet</h4>
+    @endif
 </div>
 @endsection

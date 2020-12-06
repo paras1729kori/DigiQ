@@ -11,6 +11,9 @@
           <li class="nav-item active">
             <a class="nav-link" aria-current="page" href="/queue">Queue</a>
           </li>
+          <li class="nav-item active">
+            <a class="nav-link" aria-current="page" href="/completed">Completed</a>
+          </li>
 
             <!-- Authentication Links -->
             @guest

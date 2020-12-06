@@ -12,6 +12,21 @@ use Kreait\Firebase\Database;
 
 class QueuesController extends Controller
 {
+    //user defined methods
+    public function completed(){
+        $title = "Completed Applications";
+        $factory = (new Factory)->withServiceAccount(__DIR__.'/digiq-f5f74-firebase-adminsdk-3ewcn-6d963633d4.json');
+        $database = $factory->createDatabase();
+
+        //object for reading a db
+        $read = $database->getReference('names');
+
+        //reading data from db
+        $names = $read->getValue();
+
+        return view('pages.complete',['title'=>$title,'names'=>$names]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -103,37 +118,44 @@ class QueuesController extends Controller
         $phone_no = $_POST['phone_no'];
         $email = $_POST['email'];
         $token = $_POST['token'];
+        $time = 0;
 
         if($request->input('form_fill') == '1'){
             $form_fill = '1';
+            $time = $time + 5;
         }
         else{
             $form_fill = '0';
         }
         if($request->input('verified') == '1'){
             $verified = '1';
+            $time = $time + 5;
         }
         else{
             $verified = '0';
         }
         if($request->input('file_created') == '1'){
             $file_created = '1';
+            $time = $time + 5;
         }
         else{
             $file_created = '0';
         }
-        if($request->input('payment')== '1'){
+        if($request->input('payment') == '1'){
             $payment = '1';
+            $time = $time + 5;
         }
         else{
             $payment = '0';
         }
         if($request->input('email_create') == '1'){
             $email_create = '1';
+            $time = $time + 5;
         }
         else{
             $email_create = '0';
         }
+        $time_rem = 25 - $time;
 
         $data = [
             'name' => $name,
@@ -144,7 +166,8 @@ class QueuesController extends Controller
             'verified' => $verified,
             'file_created' => $file_created,
             'payment' => $payment,
-            'email_create' => $email_create
+            'email_create' => $email_create,
+            'time_rem' => $time_rem
         ];
 
         $factory = (new Factory)->withServiceAccount(__DIR__.'/digiq-f5f74-firebase-adminsdk-3ewcn-6d963633d4.json');
