@@ -12,6 +12,11 @@ use Kreait\Firebase\Database;
 
 class QueuesController extends Controller
 {
+    //for verification if the user is logged in or not
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     //user defined methods
     public function completed(){
         $title = "Completed Applications";

@@ -34,24 +34,24 @@ class FirebaseController extends Controller
         echo "Done";        
     }
     
-    public function usersView(){
-        $factory = (new Factory)->withServiceAccount(__DIR__.'/digiq-f5f74-firebase-adminsdk-3ewcn-6d963633d4.json');
-        $database = $factory->createDatabase();
+    // public function usersView(){
+    //     $factory = (new Factory)->withServiceAccount(__DIR__.'/digiq-f5f74-firebase-adminsdk-3ewcn-6d963633d4.json');
+    //     $database = $factory->createDatabase();
 
-        //object for reading a db
-        $read = $database->getReference('users');
+    //     //object for reading a db
+    //     $read = $database->getReference('users');
 
-        //reading data from db
-        $user_names = $read->getValue();
-        $users = [];
-        for($i=1; $i<count($user_names); $i++){
-            array_push($users,$user_names[$i]);
-        }
-        $title = "Users";
-        // return $users;
+    //     //reading data from db
+    //     $user_names = $read->getValue();
+    //     $users = [];
+    //     for($i=1; $i<count($user_names); $i++){
+    //         array_push($users,$user_names[$i]);
+    //     }
+    //     $title = "Users";
+    //     // return $users;
 
-        return view('pages.users',['users'=>$users,'title'=>$title]);
-    }
+    //     return view('pages.users',['users'=>$users,'title'=>$title]);
+    // }
 }
 
 ?>

@@ -5,6 +5,13 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav ml-auto mb-2 mb-md-0">
+
+          @if (Auth::guest() || auth()->user()->controller == '1')
+            <li class="nav-item active">
+              <a class="nav-link" aria-current="page" href="{{ route('register.user') }}">Register</a>
+            </li>
+          @endif
+
           <li class="nav-item active">
             <a class="nav-link" aria-current="page" href="/home">Users</a>
           </li>
