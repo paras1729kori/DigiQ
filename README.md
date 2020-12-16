@@ -8,3 +8,5 @@ Motive of making such a system:
 - Hassle free interaction of a queue
 - No physical presence needed
 - Saving a considerable amount of time
+
+[Android Application Source Code](https://github.com/SarveshSoni09/DigiQ)
