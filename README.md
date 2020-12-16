@@ -1,3 +1,14 @@
+## Short Description
+
+A Digital Queuing System.
+It works in unison with an android application, developed along with a team.
+
+Motive of the making such a system:
+
+- Hassle free interaction of a queue
+- No physical presence needed
+- Saving a considerable amount of time
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
