@@ -17,6 +17,6 @@ Motive of making such a system:
 [Android Application Source Code](https://github.com/SarveshSoni09/DigiQ)
 
 ### UI of Android App
-
+[!DigiQ 1](https://drive.google.com/file/d/1dqCINGSmBYjdOToWOou5LXP1gz6Af0T8/view?usp=sharing)
 
 ### UI of Admin Panel
