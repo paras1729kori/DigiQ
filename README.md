@@ -15,3 +15,7 @@ Motive of making such a system:
 - Saving a considerable amount of time
 
 [Android Application Source Code](https://github.com/SarveshSoni09/DigiQ)
+
+## UI of Android App
+
+## UI of Admin Panel
