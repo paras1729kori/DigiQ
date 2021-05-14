@@ -17,8 +17,10 @@ Motive of making such a system:
 [Android Application Source Code](https://github.com/SarveshSoni09/DigiQ)
 
 ### UI of Android App
-<img src="https://user-images.githubusercontent.com/61196454/118238369-0f611400-b4b6-11eb-8a14-27f4fd561c05.jpg" alt="drawing" width="200"/>
-![DIgiQ 2](https://user-images.githubusercontent.com/61196454/118238369-0f611400-b4b6-11eb-8a14-27f4fd561c05.jpg)
+<img src="https://user-images.githubusercontent.com/61196454/118238369-0f611400-b4b6-11eb-8a14-27f4fd561c05.jpg" alt="drawing" width="100"/>
+<img src="https://user-images.githubusercontent.com/61196454/118238369-0f611400-b4b6-11eb-8a14-27f4fd561c05.jpg" alt="drawing" width="100"/>
+<img src="https://user-images.githubusercontent.com/61196454/118238400-1720b880-b4b6-11eb-886a-635f28840299.jpg" alt="drawing" width="100"/>
+![DIgiQ 2]()
 ![DIgiQ 3](https://user-images.githubusercontent.com/61196454/118238400-1720b880-b4b6-11eb-886a-635f28840299.jpg)
 
 ### UI of Admin Panel
