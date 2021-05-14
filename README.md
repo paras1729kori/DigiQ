@@ -20,7 +20,12 @@ Motive of making such a system:
 <img src="https://user-images.githubusercontent.com/61196454/118238369-0f611400-b4b6-11eb-8a14-27f4fd561c05.jpg" alt="drawing" width="100"/>   <img src="https://user-images.githubusercontent.com/61196454/118238400-1720b880-b4b6-11eb-886a-635f28840299.jpg" alt="drawing" width="100"/>
 
 ### UI of Admin Panel
+<img src="https://user-images.githubusercontent.com/61196454/118238318-fd7f7100-b4b5-11eb-8edb-bb1680a93945.png" alt="drawing" width="100"/>
+<img src="https://user-images.githubusercontent.com/61196454/118238417-1c7e0300-b4b6-11eb-8c04-c18f9e07c299.jpg" alt="drawing" width="100"/>
+<img src="https://user-images.githubusercontent.com/61196454/118238417-1c7e0300-b4b6-11eb-8c04-c18f9e07c299.jpg" alt="drawing" width="100"/>
+<img src="https://user-images.githubusercontent.com/61196454/118238443-26076b00-b4b6-11eb-8aa6-c2601454058c.jpg" alt="drawing" width="100"/>
+<!---
 ![DIgiQ 1](https://user-images.githubusercontent.com/61196454/118238318-fd7f7100-b4b5-11eb-8edb-bb1680a93945.png)
 ![DIgiQ 4](https://user-images.githubusercontent.com/61196454/118238417-1c7e0300-b4b6-11eb-8c04-c18f9e07c299.jpg)
-![DIgiQ 5](https://user-images.githubusercontent.com/61196454/118238436-243da780-b4b6-11eb-9c2d-d07b940b8655.jpg)
+![DIgiQ 5](https://user-images.githubusercontent.com/61196454/118238417-1c7e0300-b4b6-11eb-8c04-c18f9e07c299.jpg)
 ![DIgiQ 6](https://user-images.githubusercontent.com/61196454/118238443-26076b00-b4b6-11eb-8aa6-c2601454058c.jpg)
